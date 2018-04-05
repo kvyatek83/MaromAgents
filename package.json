@@ -1,0 +1,30 @@
+{
+  "name": "marom-agents",
+  "version": "1.0.0",
+  "description": "marom agents website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies":{
+    "express":"*",
+    "mongoose":"*",
+    "bcryptjs":"*",
+    "cors":"*",
+    "jsonwebtoken":"*",
+    "body-parser":"*",
+    "passport":"*",
+    "passport-jwt":"*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/kvyatek83/MaromAgents.git"
+  },
+  "author": "Netanel Kvyatek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/kvyatek83/MaromAgents/issues"
+  },
+  "homepage": "https://gitlab.com/kvyatek83/MaromAgents#README"
+}
