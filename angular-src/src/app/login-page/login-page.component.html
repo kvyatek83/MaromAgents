@@ -1,19 +1,20 @@
+<div class="container">
 <div class="center-content">
-  <div class="row">
+  <div class="form-row text-center">
     <div class="col-md-2 offset-md-5" *ngIf="userInvalid">
       <div class="alert alert-danger r2l" role="alert">
         שם משתמש ו/או סיסמא שגויים!
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="form-row text-center">
     <div class="col-md-2 offset-md-5">
       <div class="input-group mb-3">
         <input type="text" [(ngModel)]="username" class="form-control r2l" placeholder="שם משתמש" aria-label="Username" aria-describedby="basic-addon1">
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="form-row text-center">
     <div class="col-md-2 offset-md-5">
       <div class="input-group mb-3">
         <input type="password" [(ngModel)]="password" class="form-control r2l" placeholder="סיסמא" aria-label="Password" aria-describedby="basic-addon1">
@@ -26,3 +27,4 @@
         <a class="btn btn-primary btn-lg" role="button" (click)="login()">התחבר</a>
     </div>
  </div>
+</div>

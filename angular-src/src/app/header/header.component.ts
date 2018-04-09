@@ -10,6 +10,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  public navbarCollapsed = true;
+
   ngOnInit() {
   }
 

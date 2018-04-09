@@ -35,6 +35,7 @@ export class LoginPageComponent implements OnInit {
           this.userInvalid = false
           //TODO::move the default page...
         }
+        console.log(res);
       });
   }
 
