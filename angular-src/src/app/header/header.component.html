@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           בישום
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
@@ -17,6 +17,15 @@
       </li>
       <li class="nav-item" routerLink="manager">
         <a class="nav-link" (click)="navigateToProductPage('makeup')" href="#">איפור<span class="sr-only">(current)</span></a>
+      </li>
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          מנהל
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+          <a class="dropdown-item" href="#">מלאי</a>
+          <a class="dropdown-item" href="#/create">הוספת מוצר</a>
+        </div>
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
