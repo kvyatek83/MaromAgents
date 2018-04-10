@@ -5,3 +5,7 @@
   direction: rtl;
   text-align: right;
 }
+
+a:hover{
+  cursor: pointer;
+}

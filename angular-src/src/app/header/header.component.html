@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           בישום
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+        <div class="dropdown-menu r2l" aria-labelledby="navbarDropdown" ngbDropdownMenu>
           <a class="dropdown-item" (click)="navigateToProductPage('mperfume')">גברים</a>
           <a class="dropdown-item" (click)="navigateToProductPage('lperfume')">נשים</a>
         </div>
@@ -19,12 +19,12 @@
         <a class="nav-link" (click)="navigateToProductPage('makeup')" href="#">איפור<span class="sr-only">(current)</span></a>
       </li>
       <li ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           מנהל
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ngbDropdownMenu>
+        <div class="dropdown-menu r2l" aria-labelledby="navbarDropdown" ngbDropdownMenu>
           <a class="dropdown-item" href="#">מלאי</a>
-          <a class="dropdown-item" href="#/create">הוספת מוצר</a>
+          <a class="dropdown-item" href="#/create">חדש</a>
         </div>
       </li>
     </ul>
