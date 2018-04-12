@@ -1,0 +1,14 @@
+<div *ngIf="products">
+<ul>
+  <li *ngFor="let product of products">
+    {{product.name}}
+  </li>
+</ul>
+</div>
+
+<div *ngIf="!products">
+  noooooooo
+</div>
+
+<!-- need this in the catalog components -->
+  <!-- <app-products-list [products]="a"></app-products-list> -->

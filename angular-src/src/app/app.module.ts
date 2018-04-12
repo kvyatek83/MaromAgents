@@ -10,13 +10,15 @@ import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from './app-routing.module';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { ProductsListComponent } from './products-list/products-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginPageComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    ProductsListComponent
   ],
   imports: [
     BrowserModule,
