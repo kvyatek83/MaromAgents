@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'newProduct', component: CreateProductComponent},
   // { path: 'manager', component: AdminPageComponent},
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '**', redirectTo: '/' }
+  { path: '**', redirectTo: '/' }];
 
 
 const config: ExtraOptions = {
