@@ -17,9 +17,6 @@ export class LoginPageComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    // this.http.get('http://localhost:3000/item').subscribe(data => {
-    //   this.a = data;
-    // });
   }
 
   //TODO::client error message if the connection failde.

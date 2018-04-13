@@ -9,8 +9,6 @@ export class ProductsListComponent implements OnInit {
 
   @Input() products: any;
 
-  // the products from the server in the components
-  // a : any;
   constructor() { }
 
   ngOnInit() {

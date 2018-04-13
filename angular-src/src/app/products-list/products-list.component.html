@@ -1,14 +1,44 @@
 <div *ngIf="products">
-<ul>
-  <li *ngFor="let product of products">
-    {{product.name}}
-  </li>
-</ul>
+
+
+    
+    <div class="container">
+  
+  <div class="row">
+        <div class="col-12">
+        
+<div class="card-columns">
+
+  <div *ngFor="let product of products">
+
+      <div class="card" style="max-width:319px;">
+          <img class="card-img-top" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg" alt="Card image">
+          <div class="card-body r2l">
+            <h4 class="card-title">{{product.name}}</h4>
+            <p class="card-text">
+              מחיר : {{product.price}}
+            </p>
+            <a href="#" class="btn btn-primary">See Profile</a>
+          </div>
+        </div>
+
+
+    
+  </div>
+
 </div>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+
 
 <div *ngIf="!products">
   noooooooo
 </div>
-
-<!-- need this in the catalog components -->
-  <!-- <app-products-list [products]="a"></app-products-list> -->

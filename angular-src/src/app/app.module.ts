@@ -11,6 +11,9 @@ import {AppRoutingModule} from './app-routing.module';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { ProductsListComponent } from './products-list/products-list.component';
+import { StockPageComponent } from './stock-page/stock-page.component';
+
+import { ProductsService } from './products.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { ProductsListComponent } from './products-list/products-list.component';
     HeaderComponent,
     LoginPageComponent,
     CreateProductComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    StockPageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
