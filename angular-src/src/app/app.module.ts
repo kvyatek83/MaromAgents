@@ -10,13 +10,19 @@ import { HeaderComponent } from './header/header.component';
 import {AppRoutingModule} from './app-routing.module';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import { ProductsListComponent } from './products-list/products-list.component';
+import { StockPageComponent } from './stock-page/stock-page.component';
+
+import { ProductsService } from './products.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginPageComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    ProductsListComponent,
+    StockPageComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,7 @@ import { CreateProductComponent } from './create-product/create-product.componen
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { CreateProductComponent } from './create-product/create-product.component';
 import {LoginPageComponent} from './login-page/login-page.component';
+import { StockPageComponent } from './stock-page/stock-page.component';
 
 // const routes: Routes = [
 //   { path: 'catalog/:product', component: CatalogPageComponent},
@@ -17,6 +18,7 @@ import {LoginPageComponent} from './login-page/login-page.component';
 
 const routes: Routes = [
     { path: 'create', component: CreateProductComponent},
+    { path: 'stock', component: StockPageComponent},
     { path: 'login', component: LoginPageComponent}
 ];
 
