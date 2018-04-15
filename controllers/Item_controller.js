@@ -50,6 +50,13 @@ exports.get_by_category = function(req, res, next) {
     res.json(products);
 })};
 
+/* GET BY STATUS */
+exports.get_by_status = function(req, res, next) {
+  Item.find({status : req.params.status}, function(err, products) {
+    if (err) return next(err);
+    res.json(products);
+})};
+
 /* GET BY CATEGORY AND GENDER */
 exports.get_by_category_and_gender = function(req, res, next) {
   Item.find({category : req.params.category,
