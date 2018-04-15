@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators  } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+import { ProductsService } from '../products.service';
+
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
@@ -17,7 +19,7 @@ export class CreateProductComponent implements OnInit {
   price: FormControl;
   amount: FormControl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private productsService: ProductsService) { }
 
   Category: string[] = [
     'בושם',
@@ -25,8 +27,8 @@ export class CreateProductComponent implements OnInit {
   ]
 
   Gender: string[] = [
-    'נשים',
-    'גברים',
+    'אישה',
+    'גבר',
   ]
 
   Status: string[] = [
@@ -83,6 +85,21 @@ export class CreateProductComponent implements OnInit {
             //TODO::move to catalog page...
           }
         });
+
+    // const newProduct = new FormData();
+
+    // newProduct.append('name' , this.itemName.value);
+    // newProduct.append('gender' , this.gender.value);
+    // newProduct.append('category' , this.category.value);
+    // newProduct.append('price' , this.price.value);
+    // newProduct.append('status' , this.status.value);
+    // newProduct.append('ml' , this.amount.value);
+    // newProduct.append('image' , "this.image");
+
+    
+    // this.productsService.createProduct(newProduct).subscribe(
+    //   data => {console.error("yesssssssssss")},
+    //   err => console.error(err));
   }
 
 }
