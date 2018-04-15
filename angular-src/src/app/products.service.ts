@@ -34,7 +34,7 @@ export class ProductsService {
   }
 
   deleteProduct(product) {
-    return this.http.delete(this.productURL + product._id);
+    return this.http.delete(this.productURL + '/' + product._id);
   }
 
 }

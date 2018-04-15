@@ -14,11 +14,23 @@ export class StockPageComponent implements OnInit {
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.getAvailableProducts("זמין");
+    this.getAllProducts();
   }
 
-  getAvailableProducts(status){
-    this.productsService.getProductsByStatus(status).subscribe(
+  getAllProducts(){
+    this.productsService.getAllProducts().subscribe(
+      data => {this.stock = data},
+      err => console.error(err));
+  }
+  
+  getNotAvailableProducts(){
+    this.productsService.getProductsByStatus("לא זמין").subscribe(
+      data => {this.stock = data},
+      err => console.error(err));
+  }
+
+  getAvailableProducts(){
+    this.productsService.getProductsByStatus("זמין").subscribe(
       data => {this.stock = data},
       err => console.error(err));
   }
