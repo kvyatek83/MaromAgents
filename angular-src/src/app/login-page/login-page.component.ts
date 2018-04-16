@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Router} from '@angular/router';
 
+import { UserService } from '../user.service';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -14,7 +16,7 @@ export class LoginPageComponent implements OnInit {
   userInvalid = false;
   user : any;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -30,6 +32,7 @@ export class LoginPageComponent implements OnInit {
         } else {
           this.user = res['premission'];
           this.userInvalid = false
+          this.userService.setPremission(this.user);
           this.router.navigate(['/']);
           //TODO::move the default page...
         }

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { ProductsService } from '../products.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-products-list',
@@ -11,12 +12,20 @@ export class ProductsListComponent implements OnInit {
 
   @Input() products: any;
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService, private userService: UserService) { }
 
   ngOnInit() {
   }
 
-  onDelete(product){
+  isUserIsAdmin(){
+    return this.userService.getPremission() == "admin";
+  }
+
+  update(product){
+    
+  }
+
+  delete(product){
     this.productsService.deleteProduct(product).subscribe(
       data => {window.location.reload()},
       err => console.error(err));

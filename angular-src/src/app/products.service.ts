@@ -7,7 +7,8 @@ export class ProductsService {
   private productURL = 'http://localhost:3000/item';
   
   constructor(private http: HttpClient) { }
-
+  
+  //GET ALL THE PRODUCTS
   getAllProducts() {
     return this.http.get(this.productURL);
   }

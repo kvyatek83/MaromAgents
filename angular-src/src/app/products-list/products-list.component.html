@@ -15,15 +15,15 @@
               {{product.status}} במלאי
             </p>
             <button type="button" class="btn btn-primary">הגדל</button>
-            <button type="button" class="btn btn-success">ערוך</button>
-            <button type="button" class="btn btn-danger" (click)="onDelete(product)">מחק</button>
+            <button type="button" class="btn btn-success" (click)="update(product)" *ngIf="isUserIsAdmin()">ערוך</button>
+            <button type="button" class="btn btn-danger" (click)="delete(product)" *ngIf="isUserIsAdmin()">מחק</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-        
+
 <div *ngIf="!products">
   לא נטענו שם מוצרים
 </div>
