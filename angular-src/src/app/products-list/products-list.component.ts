@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import {Router} from '@angular/router';
+
 import { ProductsService } from '../products.service';
 import { UserService } from '../user.service';
 
@@ -11,8 +13,9 @@ import { UserService } from '../user.service';
 export class ProductsListComponent implements OnInit {
 
   @Input() products: any;
+  @Input() callback: Function;
 
-  constructor(private productsService: ProductsService, private userService: UserService) { }
+  constructor(private router: Router, private productsService: ProductsService, private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -27,7 +30,10 @@ export class ProductsListComponent implements OnInit {
 
   delete(product){
     this.productsService.deleteProduct(product).subscribe(
-      data => {window.location.reload()},
+      data => {this.callback},
       err => console.error(err));
+      
   }
 }
+
+// window.location.reload()

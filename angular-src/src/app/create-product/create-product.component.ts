@@ -68,38 +68,18 @@ export class CreateProductComponent implements OnInit {
   }
 
   onSubmit() {
-    this.http.post('http://localhost:3000/item', {
-              name : this.itemName.value,
-              gender : this.gender.value,
-              category : this.category.value,
-              price : this.price.value, 
-              status : this.status.value,
-              ml : this.amount.value,
-              image : "this.image" 
-            }).subscribe(res => {
-          if(res['errMsg'])
-          {
-            console.log(res['errMsg'])
-          } else {
-            console.log("yaaaaaaa")
-            //TODO::move to catalog page...
-          }
-        });
+    let newProduct = {
+      name : this.itemName.value,
+      gender : this.gender.value,
+      category : this.category.value,
+      price : this.price.value, 
+      status : this.status.value,
+      ml : this.amount.value,
+      image : "this.image"};
 
-    // const newProduct = new FormData();
-
-    // newProduct.append('name' , this.itemName.value);
-    // newProduct.append('gender' , this.gender.value);
-    // newProduct.append('category' , this.category.value);
-    // newProduct.append('price' , this.price.value);
-    // newProduct.append('status' , this.status.value);
-    // newProduct.append('ml' , this.amount.value);
-    // newProduct.append('image' , "this.image");
-
-    
-    // this.productsService.createProduct(newProduct).subscribe(
-    //   data => {console.error("yesssssssssss")},
-    //   err => console.error(err));
+    this.productsService.createProduct(newProduct).subscribe(
+      data => {console.log("yesssssssssss")},
+      err => console.error(err));
   }
 
 }

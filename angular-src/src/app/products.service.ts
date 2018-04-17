@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions ={
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable()
 export class ProductsService {
@@ -13,10 +17,16 @@ export class ProductsService {
     return this.http.get(this.productURL);
   }
 
-  // createProduct(product) {
-  //   let nePproduct = JSON.stringify(product);
-  //   return this.http.post(this.productURL, product);
-  // }
+  //CREATE A NEW PRODUCT
+  createProduct(product) {
+    let body = JSON.stringify(product);
+    return this.http.post(this.productURL, body, httpOptions);
+  }
+
+  updateProduct(product) {
+    let body = JSON.stringify(product);
+    return this.http.post(this.productURL + '/' + product._id, body, httpOptions);
+  }
 
   getProductsById(product) {
     return this.http.get(this.productURL + product._id);

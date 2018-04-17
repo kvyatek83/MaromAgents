@@ -23,21 +23,22 @@ export class LoginPageComponent implements OnInit {
 
   //TODO::client error message if the connection failde.
   login(){
-    this.http.post('http://localhost:3000/user', {
-      username : this.username,
-      password : this.password }).subscribe(res => {
-        if(res['errMsg'])
-        {
-          this.userInvalid = true;
-        } else {
-          this.user = res['premission'];
-          this.userInvalid = false
-          this.userService.setPremission(this.user);
-          this.router.navigate(['/']);
+      let userToCheck = {
+        username : this.username,
+        password : this.password};
+  
+      this.userService.login(userToCheck).subscribe(
+        data => {
+          if(data['errMsg']){
+            this.userInvalid = true;
+          } else {
+            this.user = data['premission'];
+            this.userInvalid = false
+            this.userService.setPremission(this.user);
+            this.router.navigate(['/']);
           //TODO::move the default page...
-        }
-        console.log(res);
-      });
+        }},
+        err => console.error(err));
   }
 
 }
