@@ -21,6 +21,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { StockPageComponent } from './stock-page/stock-page.component';
 
 import { ProductsService } from './products.service';
+import { UserService } from './user.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { ProductsService } from './products.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ProductsService],
+  providers: [ProductsService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

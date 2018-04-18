@@ -10,17 +10,7 @@ router.get('/', item_controller.get_all_items)
       .put('/:id', item_controller.update_item)
       .delete('/:id', item_controller.delete_item)
       .get('/category/:category', item_controller.get_by_category)
+      .get('/status/:status', item_controller.get_by_status)
       .get('/category/:category/gender/:gender', item_controller.get_by_category_and_gender);
-
-router.get('/re', (req,res,next) => {
-      res.send("re");
-});
-
-// router.get('/', function(req, res, next) {
-//       Item.find(function (err, products) {
-//         if (err) return next(err);
-//         res.json(products);
-//       });
-//     });
 
 module.exports = router;

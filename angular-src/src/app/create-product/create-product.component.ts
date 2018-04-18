@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators  } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+import { ProductsService } from '../products.service';
+
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
@@ -17,7 +19,7 @@ export class CreateProductComponent implements OnInit {
   price: FormControl;
   amount: FormControl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private productsService: ProductsService) { }
 
   Category: string[] = [
     'בושם',
@@ -25,8 +27,8 @@ export class CreateProductComponent implements OnInit {
   ]
 
   Gender: string[] = [
-    'נשים',
-    'גברים',
+    'אישה',
+    'גבר',
   ]
 
   Status: string[] = [
@@ -66,23 +68,18 @@ export class CreateProductComponent implements OnInit {
   }
 
   onSubmit() {
-    this.http.post('http://localhost:3000/item', {
-              name : this.itemName.value,
-              gender : this.gender.value,
-              category : this.category.value,
-              price : this.price.value, 
-              status : this.status.value,
-              ml : this.amount.value,
-              image : "this.image" 
-            }).subscribe(res => {
-          if(res['errMsg'])
-          {
-            console.log(res['errMsg'])
-          } else {
-            console.log("yaaaaaaa")
-            //TODO::move to catalog page...
-          }
-        });
+    let newProduct = {
+      name : this.itemName.value,
+      gender : this.gender.value,
+      category : this.category.value,
+      price : this.price.value, 
+      status : this.status.value,
+      ml : this.amount.value,
+      image : "this.image"};
+
+    this.productsService.createProduct(newProduct).subscribe(
+      data => {console.log("yesssssssssss")},
+      err => console.error(err));
   }
 
 }

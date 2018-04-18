@@ -9,7 +9,7 @@ var ItemSchema = new mongoose.Schema({
       gender: {
         type: [{
             type: String,
-            enum: ['נשים', 'גברים']
+            enum: ['אישה', 'גבר']
         }]
       },
       category: {
