@@ -4,17 +4,18 @@
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4"  *ngFor="let product of products">
       <br>
         <div class="card" style="max-width:319px;">
-          <img class="card-img-top" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg" alt="Card image">
+          <img class="card-img-top" src="{{product.image}}" alt="Card image">
           <div class="card-body r2l">
             <h4 class="card-title">{{product.name}} ל{{product.gender}}</h4>
+            <hr>
             <p class="card-text">
-              מחיר: {{product.price}}
+                מ"ל: {{product.ml}}
               <br>
-              מ"ל: {{product.ml}}
+              מחיר: {{product.price}}
               <br>
               {{product.status}} במלאי
             </p>
-            <button type="button" class="btn btn-primary">הגדל</button>
+            <button type="button" class="btn btn-primary" (click)="show(product)">הגדל</button>
             <button type="button" class="btn btn-success" (click)="update(product)" *ngIf="isUserIsAdmin()">ערוך</button>
             <button type="button" class="btn btn-danger" (click)="delete(product)" *ngIf="isUserIsAdmin()">מחק</button>
           </div>
