@@ -1,8 +1,17 @@
-<div *ngIf="products">
+
+<nav class="navbar navbar-light bg-light fixed-top fixed-top-2 r2l">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+  </nav>
+
+<div class="center-content" *ngIf="products">
   <div class="container r2l">
     <div class="row card-group">
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4"  *ngFor="let product of products">
-      <br>
         <div class="card" style="max-width:319px;">
           <img class="card-img-top" src="{{product.image}}" alt="Card image">
           <div class="card-body r2l">
@@ -11,7 +20,7 @@
             <p class="card-text">
                 מ"ל: {{product.ml}}
               <br>
-              מחיר: {{product.price}}
+              מחיר: {{product.price}} 
               <br>
               {{product.status}} במלאי
             </p>
