@@ -75,7 +75,7 @@ export class CreateProductComponent implements OnInit {
       price : this.price.value, 
       status : this.status.value,
       ml : this.amount.value,
-      image : "https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg"};
+      image : "https://www.glamguru.co.il/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/_/o/_one_million_100mle.d.t_paco_rabanne.jpg"};
 
     this.productsService.createProduct(newProduct).subscribe(
       data => {console.log("yesssssssssss")},
