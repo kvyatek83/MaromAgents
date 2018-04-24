@@ -1,24 +1,38 @@
+
+<nav class="navbar navbar-light bg-light r2l">
+    <form class="form-inline">
+        
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+  </nav>
+
 <div *ngIf="products">
   <div class="container r2l">
-    <div class="row card-group">
+    <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4"  *ngFor="let product of products">
-      <br>
-        <div class="card" style="max-width:319px;">
-          <img class="card-img-top" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg" alt="Card image">
-          <div class="card-body r2l">
-            <h4 class="card-title">{{product.name}} ל{{product.gender}}</h4>
-            <p class="card-text">
-              מחיר: {{product.price}}
-              <br>
-              מ"ל: {{product.ml}}
-              <br>
-              {{product.status}} במלאי
-            </p>
-            <button type="button" class="btn btn-primary">הגדל</button>
-            <button type="button" class="btn btn-success" (click)="update(product)" *ngIf="isUserIsAdmin()">ערוך</button>
-            <button type="button" class="btn btn-danger" (click)="delete(product)" *ngIf="isUserIsAdmin()">מחק</button>
+          <br>        
+        <div class="maincontainer">
+        <div class="thecard">
+          <div class="thefront">
+              <img class="resize" src="{{product.image}}"  alt="Card image">
+          </div>
+          <div class="theback r2l">
+              <h3 class="card-title">{{product.name}} ל{{product.gender}}</h3>
+              <hr>
+              <p class="card-text">
+                {{product.ml}} מ"ל
+                <br>
+                {{product.price}} ₪
+                <br>
+                {{product.status}} במלאי
+              </p>
+              <button type="button" class="btn btn-primary" (click)="show(product)">הגדל</button>
+              <button type="button" class="btn btn-success" (click)="update(product)" *ngIf="isUserIsAdmin()">ערוך</button>
+              <button type="button" class="btn btn-danger" (click)="delete(product)" *ngIf="isUserIsAdmin()">מחק</button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>

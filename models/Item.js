@@ -34,7 +34,7 @@ var ItemSchema = new mongoose.Schema({
       },
       image: {
         type: String,
-        default: "some/image"
+        default: "https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg"
       }
   });
 

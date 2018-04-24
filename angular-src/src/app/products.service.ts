@@ -25,11 +25,11 @@ export class ProductsService {
 
   updateProduct(product) {
     let body = JSON.stringify(product);
-    return this.http.post(this.productURL + '/' + product._id, body, httpOptions);
+    return this.http.put(this.productURL + '/' + product._id, body, httpOptions);
   }
 
-  getProductsById(product) {
-    return this.http.get(this.productURL + product._id);
+  getProductsById(id) {
+    return this.http.get(this.productURL + '/' + id);
   }
 
   getProductsByCategory(category) {

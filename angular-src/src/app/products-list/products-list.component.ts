@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-
 import {Router} from '@angular/router';
 
 import { ProductsService } from '../products.service';
@@ -13,9 +12,8 @@ import { UserService } from '../user.service';
 export class ProductsListComponent implements OnInit {
 
   @Input() products: any;
-  @Input() callback: Function;
 
-  constructor(private router: Router, private productsService: ProductsService, private userService: UserService) { }
+  constructor(private productsService: ProductsService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,13 +22,22 @@ export class ProductsListComponent implements OnInit {
     return this.userService.getPremission() == "admin";
   }
 
-  update(product){
+  
+  show(product){
     
   }
+  
+  update(product){
+    this.router.navigate(['updateProduct', product._id]);
+  }
 
-  delete(product){
+  delete(product){ 
+
     this.productsService.deleteProduct(product).subscribe(
-      data => {this.callback},
+      data => {
+        var index = this.products.indexOf(product);
+        this.products.splice(index, 1);
+      },
       err => console.error(err));
       
   }

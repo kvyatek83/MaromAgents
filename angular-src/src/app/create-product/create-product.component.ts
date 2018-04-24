@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule, Validators  } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 import { ProductsService } from '../products.service';
@@ -10,6 +10,8 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit {
+
+  create = "create";
 
   myForm : FormGroup;
   itemName : FormControl;
@@ -75,7 +77,7 @@ export class CreateProductComponent implements OnInit {
       price : this.price.value, 
       status : this.status.value,
       ml : this.amount.value,
-      image : "this.image"};
+      image : "https://www.glamguru.co.il/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/_/o/_one_million_100mle.d.t_paco_rabanne.jpg"};
 
     this.productsService.createProduct(newProduct).subscribe(
       data => {console.log("yesssssssssss")},
