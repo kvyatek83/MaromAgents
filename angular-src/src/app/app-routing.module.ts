@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent},
   { path: 'newProduct', component: CreateProductComponent},
   { path: 'updateProduct', component: UpdateProductComponent},
-  { path: 'updateProduct/:product', component: UpdateProductComponent},
+  { path: 'updateProduct/:productId', component: UpdateProductComponent},
   // { path: 'manager', component: AdminPageComponent},
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', redirectTo: '/' }];

@@ -28,8 +28,8 @@ export class ProductsService {
     return this.http.put(this.productURL + '/' + product._id, body, httpOptions);
   }
 
-  getProductsById(product) {
-    return this.http.get(this.productURL + product._id);
+  getProductsById(id) {
+    return this.http.get(this.productURL + '/' + id);
   }
 
   getProductsByCategory(category) {
