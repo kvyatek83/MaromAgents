@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 import { ProductsService } from '../products.service';
 import { UserService } from '../user.service';
@@ -12,7 +13,7 @@ export class ProductsListComponent implements OnInit {
 
   @Input() products: any;
 
-  constructor(private productsService: ProductsService, private userService: UserService) { }
+  constructor(private productsService: ProductsService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,7 +28,7 @@ export class ProductsListComponent implements OnInit {
   }
   
   update(product){
-    
+    this.router.navigate(['updateProduct', product]);
   }
 
   delete(product){ 

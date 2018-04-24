@@ -18,11 +18,13 @@ import { HomePageComponent } from './home-page/home-page.component';
 // import { StockPageComponent } from './product-pages/stock-page/stock-page.component';
 
 import { ProductsListComponent } from './products-list/products-list.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+
 import { StockPageComponent } from './stock-page/stock-page.component';
 
 import { ProductsService } from './products.service';
 import { UserService } from './user.service';
-
+import { ProductFormComponent } from './product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { UserService } from './user.service';
     MakeupPageComponent,
     HomePageComponent,
     ProductsListComponent,
-    StockPageComponent
+    StockPageComponent,
+    UpdateProductComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,

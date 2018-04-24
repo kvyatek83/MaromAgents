@@ -25,7 +25,7 @@ export class ProductsService {
 
   updateProduct(product) {
     let body = JSON.stringify(product);
-    return this.http.post(this.productURL + '/' + product._id, body, httpOptions);
+    return this.http.put(this.productURL + '/' + product._id, body, httpOptions);
   }
 
   getProductsById(product) {

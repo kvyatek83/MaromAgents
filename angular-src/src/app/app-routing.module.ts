@@ -9,6 +9,7 @@ import {MakeupPageComponent} from "./product-pages/makeup-page/makeup-page.compo
 import {HomePageComponent} from "./home-page/home-page.component";
 // import {StockPageComponent} from "./product-pages/stock-page/stock-page.component";
 import { StockPageComponent } from './stock-page/stock-page.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent},
@@ -18,10 +19,11 @@ const routes: Routes = [
   { path: 'stock', component: StockPageComponent},
   { path: 'login', component: LoginPageComponent},
   { path: 'newProduct', component: CreateProductComponent},
+  { path: 'updateProduct', component: UpdateProductComponent},
+  { path: 'updateProduct/:product', component: UpdateProductComponent},
   // { path: 'manager', component: AdminPageComponent},
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', redirectTo: '/' }];
-
 
 const config: ExtraOptions = {
   useHash: false,

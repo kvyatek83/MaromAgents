@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule, Validators  } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 import { ProductsService } from '../products.service';
@@ -10,6 +10,8 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit {
+
+  create = "create";
 
   myForm : FormGroup;
   itemName : FormControl;
