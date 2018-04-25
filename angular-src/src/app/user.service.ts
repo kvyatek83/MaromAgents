@@ -26,6 +26,6 @@ export class UserService {
 
   login(user) {
     let body = JSON.stringify(user);
-    return this.http.post(this.userURL, body, httpOptions);
+    return this.http.post('user', body, httpOptions);
   }
 }
