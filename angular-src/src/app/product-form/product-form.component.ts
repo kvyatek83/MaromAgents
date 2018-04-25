@@ -20,6 +20,7 @@ export class ProductFormComponent implements OnInit {
   status: FormControl;
   price: FormControl;
   amount: FormControl;
+  image: FormControl;
 
   constructor(private productsService: ProductsService, private builder: FormBuilder) { }
 
@@ -64,6 +65,7 @@ export class ProductFormComponent implements OnInit {
         Validators.required,
         Validators.pattern("^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$")
       ]);
+      this.image = new FormControl(this.productsToUpdate.image, Validators.required);
     }
     else{
       this.itemName = new FormControl('', Validators.required);
@@ -78,6 +80,7 @@ export class ProductFormComponent implements OnInit {
         Validators.required,
         Validators.pattern("^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$")
       ]);
+      this.image = new FormControl('', Validators.required);      
     }
   }
 
@@ -88,7 +91,8 @@ export class ProductFormComponent implements OnInit {
       gender: this.gender,
       status: this.status,
       price: this.price,
-      amount: this.amount
+      amount: this.amount,
+      image: this.image
     });
   }
 
@@ -105,7 +109,7 @@ export class ProductFormComponent implements OnInit {
           price : this.price.value, 
           status : this.status.value,
           ml : this.amount.value,
-          image : "https://www.glamguru.co.il/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/_/o/_one_million_100mle.d.t_paco_rabanne.jpg"};
+          image : this.image.value};
     
     
 
@@ -125,9 +129,8 @@ export class ProductFormComponent implements OnInit {
           price : this.price.value, 
           status : this.status.value,
           ml : this.amount.value,
-          image : "https://www.glamguru.co.il/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/_/o/_one_million_100mle.d.t_paco_rabanne.jpg"};
+          image : this.image.value};
     
-
         this.productsService.createProduct(newProduct).subscribe(
           data => {console.log("create")},
           err => console.error(err));

@@ -11,6 +11,7 @@ router.get('/', item_controller.get_all_items)
       .delete('/:id', item_controller.delete_item)
       .get('/category/:category', item_controller.get_by_category)
       .get('/status/:status', item_controller.get_by_status)
-      .get('/category/:category/gender/:gender', item_controller.get_by_category_and_gender);
+      .get('/category/:category/gender/:gender', item_controller.get_by_category_and_gender)
+      .get('/category/:category/gender/:gender/status/:status', item_controller.get_by_category_and_gender_and_status);
 
 module.exports = router;

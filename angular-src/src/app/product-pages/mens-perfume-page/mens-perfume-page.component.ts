@@ -18,9 +18,8 @@ export class MensPerfumePageComponent implements OnInit {
   }
 
   getAllMensPerfumeProducts(){
-    this.productsService.getProductsByCategoryAndGender("בושם", "גבר").subscribe(
+    this.productsService.getProductsByCategoryAndGenderAndStatus("בושם", "גבר", "זמין").subscribe(
       data => {this.mens = data},
       err => console.error(err));
   }
-
 }

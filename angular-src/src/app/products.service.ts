@@ -44,6 +44,10 @@ export class ProductsService {
     return this.http.get(this.productURL + '/category/' + category+ '/gender/' + gender);
   }
 
+  getProductsByCategoryAndGenderAndStatus(category, gender, status) {
+    return this.http.get(this.productURL + '/category/' + category + '/gender/' + gender + '/status/' + status);
+  }
+
   deleteProduct(product) {
     return this.http.delete(this.productURL + '/' + product._id);
   }

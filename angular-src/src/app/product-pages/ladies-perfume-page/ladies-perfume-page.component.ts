@@ -18,9 +18,8 @@ export class LadiesPerfumePageComponent implements OnInit {
   }
 
   getAllLadiesPerfumeProducts(){
-    this.productsService.getProductsByCategoryAndGender("בושם", "אישה").subscribe(
+    this.productsService.getProductsByCategoryAndGenderAndStatus("בושם", "אישה", "זמין").subscribe(
       data => {this.ladies = data},
       err => console.error(err));
   }
-
 }

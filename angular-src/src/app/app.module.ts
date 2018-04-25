@@ -25,6 +25,7 @@ import { StockPageComponent } from './stock-page/stock-page.component';
 import { ProductsService } from './products.service';
 import { UserService } from './user.service';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { ProductsFilterPipe } from './products-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProductFormComponent } from './product-form/product-form.component';
     ProductsListComponent,
     StockPageComponent,
     UpdateProductComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductsFilterPipe
   ],
   imports: [
     BrowserModule,

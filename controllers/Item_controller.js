@@ -64,3 +64,12 @@ exports.get_by_category_and_gender = function(req, res, next) {
     if (err) return next(err);
     res.json(products);
 })};
+
+/* GET BY CATEGORY AND GENDER AND STATUS */
+exports.get_by_category_and_gender_and_status = function(req, res, next) {
+  Item.find({category : req.params.category,
+             gender : req.params.gender,
+            status : req.params.status}, function(err, products) {
+    if (err) return next(err);
+    res.json(products);
+})};
