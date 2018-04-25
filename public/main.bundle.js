@@ -64,7 +64,7 @@ var routes = [
     { path: '**', redirectTo: '/' }
 ];
 var config = {
-    useHash: false,
+    useHash: true,
 };
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
