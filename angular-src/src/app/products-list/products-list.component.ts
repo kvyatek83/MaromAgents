@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 
 import { ProductsService } from '../products.service';
 import { UserService } from '../user.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-products-list',
@@ -13,6 +14,7 @@ export class ProductsListComponent implements OnInit {
 
   @Input() products: any;
 
+  filter: Product = new Product();
   constructor(private productsService: ProductsService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
