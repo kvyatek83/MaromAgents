@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: '**', redirectTo: '/' }];
 
 const config: ExtraOptions = {
-  useHash: false,
+  useHash: true,
 };
 
 @NgModule({
