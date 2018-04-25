@@ -1,4 +1,4 @@
 cd angular-src
-ng build
+npm run build
 cd ..
 node app.js
