@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 
 import { ProductsService } from '../../services/products.service';
 import { UserService } from '../../services/user.service';
-import { Product } from '../../product';
+import { Product } from '../../shared/product';
 
 @Component({
   selector: 'app-products-list',
@@ -44,5 +44,3 @@ export class ProductsListComponent implements OnInit {
       
   }
 }
-
-// window.location.reload()

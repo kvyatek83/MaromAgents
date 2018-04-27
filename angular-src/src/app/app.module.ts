@@ -25,7 +25,7 @@ import { UpdateProductComponent } from './components/update-product/update-produ
 import { ProductsService } from './services/products.service';
 import { UserService } from './services/user.service';
 import { ProductFormComponent } from './components/product-form/product-form.component';
-import { ProductsFilterPipe } from './products-filter.pipe';
+import { ProductsFilterPipe } from './shared/products-filter.pipe';
 
 @NgModule({
   declarations: [
