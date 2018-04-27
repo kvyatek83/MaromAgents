@@ -33,8 +33,9 @@ export class LoginPageComponent implements OnInit {
             this.userInvalid = true;
           } else {
             this.user = data['premission'];
-            this.userInvalid = false
-            this.userService.setPremission(this.user);
+            this.userInvalid = false;
+            localStorage.setItem("premission", this.user);
+            //this.userService.setPremission(this.user);
             this.router.navigate(['/']);
           //TODO::move the default page...
         }},

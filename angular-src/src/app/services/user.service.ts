@@ -8,7 +8,7 @@ const httpOptions ={
 @Injectable()
 export class UserService {
 
-  private userURL = 'http://localhost:3000/user';
+  private userURL = 'user';
   
   constructor(private http: HttpClient) { }
 
