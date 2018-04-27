@@ -18,15 +18,15 @@ export class HeaderComponent implements OnInit {
   }
 
   isUserIsGuest(){
-    return localStorage.getItem("premission") == "guest";
+    return window.localStorage.getItem("premission") == "guest";
   }
 
   isUserIsAdmin(){
-    return localStorage.getItem("premission") == "admin";
+    return window.localStorage.getItem("premission") == "admin";
   }
 
   logout(){
-    localStorage.setItem("premission", "guest");
+    window.localStorage.setItem("premission", "guest");
     this.router.navigate(['/']);
   }
 

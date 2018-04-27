@@ -34,7 +34,7 @@ export class LoginPageComponent implements OnInit {
           } else {
             this.user = data['premission'];
             this.userInvalid = false;
-            localStorage.setItem("premission", this.user);
+            window.localStorage.setItem("premission", this.user);
             console.log(this.user);
             console.log(window.localStorage.getItem("premission"));
             //this.userService.setPremission(this.user);
