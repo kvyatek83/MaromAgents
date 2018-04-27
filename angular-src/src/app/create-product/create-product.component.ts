@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
-import { ProductsService } from '../products.service';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-create-product',

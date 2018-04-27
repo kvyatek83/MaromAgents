@@ -22,8 +22,8 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 
 import { StockPageComponent } from './stock-page/stock-page.component';
 
-import { ProductsService } from './products.service';
-import { UserService } from './user.service';
+import { ProductsService } from './services/products.service';
+import { UserService } from './services/user.service';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
 
