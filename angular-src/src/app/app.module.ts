@@ -15,12 +15,12 @@ import { MensPerfumePageComponent } from './product-pages/mens-perfume-page/mens
 import { LadiesPerfumePageComponent } from './product-pages/ladies-perfume-page/ladies-perfume-page.component';
 import { MakeupPageComponent } from './product-pages/makeup-page/makeup-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-// import { StockPageComponent } from './product-pages/stock-page/stock-page.component';
+import { StockPageComponent } from './product-pages/stock-page/stock-page.component';
 
 import { ProductsListComponent } from './products-list/products-list.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 
-import { StockPageComponent } from './stock-page/stock-page.component';
+//import { StockPageComponent } from './stock-page/stock-page.component';
 
 import { ProductsService } from './services/products.service';
 import { UserService } from './services/user.service';

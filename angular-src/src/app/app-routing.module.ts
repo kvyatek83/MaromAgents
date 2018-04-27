@@ -7,8 +7,8 @@ import {MensPerfumePageComponent} from "./product-pages/mens-perfume-page/mens-p
 import {LadiesPerfumePageComponent} from "./product-pages/ladies-perfume-page/ladies-perfume-page.component";
 import {MakeupPageComponent} from "./product-pages/makeup-page/makeup-page.component";
 import {HomePageComponent} from "./home-page/home-page.component";
-// import {StockPageComponent} from "./product-pages/stock-page/stock-page.component";
-import { StockPageComponent } from './stock-page/stock-page.component';
+import {StockPageComponent} from "./product-pages/stock-page/stock-page.component";
+//import { StockPageComponent } from './stock-page/stock-page.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
@@ -21,7 +21,6 @@ const routes: Routes = [
   { path: 'newProduct', component: CreateProductComponent},
   { path: 'updateProduct', component: UpdateProductComponent},
   { path: 'updateProduct/:productId', component: UpdateProductComponent},
-  // { path: 'manager', component: AdminPageComponent},
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '**', redirectTo: '/' }];
 
