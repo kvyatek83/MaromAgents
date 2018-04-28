@@ -7,17 +7,19 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 
 // Connect To Database
-mongoose.connect(config.database);
+mongoose.connect(config.database)
+  .then(() => console.log(`Connected to database ${config.database}`))
+  .catch(err => console.error(`Database error: ${err}`));
 
-// On Connection
-mongoose.connection.on('connected', () => {
-  console.log('Connected to database '+config.database);
-});
+// // On Connection
+// mongoose.connection.on('connected', () => {
+//   console.log('Connected to database '+config.database);
+// });
 
-// On Error
-mongoose.connection.on('error', (err) => {
-  console.log('Database error: '+err);
-});
+// // On Error
+// mongoose.connection.on('error', (err) => {
+//   console.log('Database error: '+err);
+// });
 
 const app = express();
 
@@ -25,7 +27,7 @@ const items = require('./routes/Item');
 const users = require('./routes/User');
 
 // Port Number
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 // CORS Middleware
 app.use(cors());

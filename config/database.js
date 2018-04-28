@@ -1,3 +1,3 @@
 module.exports = {
-    database: 'mongodb://localhost:27017/marom'
+    database: 'mongodb://admin:admin@ds131989.mlab.com:31989/marom-agents'
 }

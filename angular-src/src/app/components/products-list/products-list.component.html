@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light bg-light r2l">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="text" [(ngModel)]="filter.name" name="name" placeholder="שם מוצר..." aria-label="Search">
+  </form>
+</nav>
+
+<br>
+
+<div *ngIf="products">
+  <div class="fiexd-side-1 r2l">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3"  *ngFor="let product of products | productsFilter:filter">
+          <br>        
+        <div class="maincontainer">
+        <div class="thecard">
+          <div class="thefront">
+              <img class="resize" src="{{product.image}}"  alt="Card image">
+          </div>
+          <div class="theback r2l">
+              <h3 class="card-title">{{product.name}} ל{{product.gender}}</h3>
+              <hr>
+              <p class="card-text">
+                {{product.ml}} מ"ל
+                <br>
+                {{product.price}} ₪
+                <br>
+                {{product.status}} במלאי
+              </p>
+              <button type="button" class="btn btn-primary" (click)="show(product)">הגדל</button>
+              <button type="button" class="btn btn-success" (click)="update(product)" *ngIf="isUserIsAdmin()">ערוך</button>
+              <button type="button" class="btn btn-danger" (click)="delete(product)" *ngIf="isUserIsAdmin()">מחק</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!products">
+  לא נטענו שם מוצרים
+</div>
+        
