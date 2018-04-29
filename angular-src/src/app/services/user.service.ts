@@ -16,7 +16,7 @@ export class UserService {
 
   //GET THE CURRENT USER PREMISSION
   getPremission() {
-    return window.localStorage.gettem("premission");;
+    return window.localStorage.getItem("premission");;
   }
 
   //SET THE CURRENT USER PREMISSION
