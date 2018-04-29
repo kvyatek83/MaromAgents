@@ -16,12 +16,12 @@ export class UserService {
 
   //GET THE CURRENT USER PREMISSION
   getPremission() {
-    return this.premission;
+    return window.localStorage.gettem("premission");;
   }
 
   //SET THE CURRENT USER PREMISSION
   setPremission(userPremission) {
-    this.premission = userPremission;
+    window.localStorage.setItem("premission", userPremission);
   }
 
   login(user) {

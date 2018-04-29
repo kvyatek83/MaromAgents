@@ -19,7 +19,18 @@
           <div class="theback r2l">
               <h3 class="card-title">{{product.name}} ל{{product.gender}}</h3>
               <hr>
-              <p class="card-text">
+              <p class="card-text" *ngIf="!isUserIsAgents() && !isUserIsAdmin()">
+                <br>
+                {{product.ml}} מ"ל
+                <br>
+              </p>
+              <p class="card-text" *ngIf="isUserIsAgents()">
+                <br>
+                {{product.ml}} מ"ל
+                <br>
+                {{product.price}} ₪
+              </p>
+              <p class="card-text" *ngIf="isUserIsAdmin()">
                 {{product.ml}} מ"ל
                 <br>
                 {{product.price}} ₪

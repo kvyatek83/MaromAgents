@@ -24,6 +24,9 @@ export class ProductsListComponent implements OnInit {
     return this.userService.getPremission() == "admin";
   }
 
+  isUserIsAgents(){
+    return this.userService.getPremission() == "agent";
+  }
   
   show(product){
     
