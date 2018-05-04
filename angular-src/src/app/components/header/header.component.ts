@@ -17,8 +17,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  isUserIsGuest(){
-    return window.localStorage.getItem("premission") == "guest";
+  isUserIsAgent(){
+    return window.localStorage.getItem("premission") == "agent";
   }
 
   isUserIsAdmin(){

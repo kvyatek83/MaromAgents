@@ -3,7 +3,7 @@
 }
 
 .fiexd-side-1{
-    margin-right: 10%;
+    margin-right: 0%;
 }
 
 .center-content{
@@ -66,7 +66,7 @@ img.resize {
 
 .thefront h3, .theback h3{
     font-family: 'zilla slab', sans-serif;
-    padding: 30px;
+    padding: 20px;
     font-weight: bold;
     font-size: 28px;
     text-align: center;
@@ -74,7 +74,7 @@ img.resize {
   
 .thefront p, .theback p{
     font-family: 'zilla slab', sans-serif;
-    padding: 30px;
+    padding: 25px;
     font-weight: normal;
     font-size: 20px;
     text-align: center;
