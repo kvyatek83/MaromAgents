@@ -8,7 +8,8 @@ const httpOptions ={
 @Injectable()
 export class UserService {
 
-  private userURL = 'user';
+  private localProductURL = 'http://localhost:8080/user';
+  private remoteUserURL = 'user';
   
   constructor(private http: HttpClient) { }
 
@@ -26,6 +27,6 @@ export class UserService {
 
   login(user) {
     let body = JSON.stringify(user);
-    return this.http.post('user', body, httpOptions);
+    return this.http.post(this.remoteUserURL, body, httpOptions);
   }
 }

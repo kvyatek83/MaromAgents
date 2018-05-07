@@ -15,3 +15,7 @@ body{
 a:hover{
   cursor: pointer;
 }
+
+.xBTN{
+  position: absolute;
+}

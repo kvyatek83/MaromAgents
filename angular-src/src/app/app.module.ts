@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
+import { NgbdModalContent } from './components/products-list/products-list.component';
 import { MensPerfumePageComponent } from './components/product-pages/mens-perfume-page/mens-perfume-page.component';
 import { LadiesPerfumePageComponent } from './components/product-pages/ladies-perfume-page/ladies-perfume-page.component';
 import { MakeupPageComponent } from './components/product-pages/makeup-page/makeup-page.component';
@@ -40,7 +41,8 @@ import { ProductsFilterPipe } from './shared/products-filter.pipe';
     StockPageComponent,
     UpdateProductComponent,
     ProductFormComponent,
-    ProductsFilterPipe
+    ProductsFilterPipe,
+    NgbdModalContent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { ProductsFilterPipe } from './shared/products-filter.pipe';
     HttpClientModule
   ],
   providers: [ProductsService, UserService],
+  entryComponents: [NgbdModalContent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
