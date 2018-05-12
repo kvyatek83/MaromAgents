@@ -1,5 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
+
+import { CreateDialogComponent } from '../../dialogs/create-dialog/create-dialog.component';
 
 import { ProductsService } from '../../services/products.service';
 
@@ -22,7 +27,11 @@ export class ProductFormComponent implements OnInit {
   amount: FormControl;
   image: FormControl;
 
-  constructor(private productsService: ProductsService, private builder: FormBuilder) { }
+  constructor(private productsService: ProductsService,
+              private builder: FormBuilder,
+              private router: Router,
+              private dialog: MatDialog, 
+              private snackBar: MatSnackBar) { }
 
   Category: string[] = [
     'בושם',
@@ -42,13 +51,7 @@ export class ProductFormComponent implements OnInit {
   ngOnInit() {
     this.createFormControls();
     this.createForm();
-    // const a: FormGroup = null;
-    // a.get('name') as FormControl
   }
-
-  // getControl(name: string): FormControl {
-  //   return a.get(name) as FormControl
-  // }
 
   createFormControls() { 
 
@@ -100,7 +103,6 @@ export class ProductFormComponent implements OnInit {
     switch(this.operation){
       case "update" :{
         
-        
         let productToUpdate = {
           _id : this.productsToUpdate._id,
           name : this.itemName.value,
@@ -110,15 +112,21 @@ export class ProductFormComponent implements OnInit {
           status : this.status.value,
           ml : this.amount.value,
           image : this.image.value};
-    
-    
 
-
-        
-        
         this.productsService.updateProduct(productToUpdate).subscribe(
-          data => {console.log("update")},
-          err => console.error(err));
+          data => {
+            let config = new MatSnackBarConfig();
+            config.duration = 2000;
+            config.panelClass = ['green-snackbar']
+            this.snackBar.open("מוצר עודכן בהצלחה", "", config);
+            this.router.navigate(['/']);
+          },
+          err => {
+            let config = new MatSnackBarConfig();
+            config.duration = 2000;
+            config.panelClass = ['red-snackbar']
+            this.snackBar.open("עדכון מוצר נכשל", "", config);
+          });
         break;
       }
       case "create" :{
@@ -130,15 +138,37 @@ export class ProductFormComponent implements OnInit {
           status : this.status.value,
           ml : this.amount.value,
           image : this.image.value};
-    
+
         this.productsService.createProduct(newProduct).subscribe(
-          data => {console.log("create")},
-          err => console.error(err));
+          data => {
+            const dialogConfig = new MatDialogConfig();
+            dialogConfig.disableClose = true;
+            dialogConfig.autoFocus = true;
+            dialogConfig.direction = "rtl";
+            const dialogRef = this.dialog.open(CreateDialogComponent, dialogConfig);
+
+            dialogRef.afterClosed().subscribe(
+              data => {
+              if(data){
+                this.myForm.reset();
+              } else {
+                this.router.navigate(['/']);
+              }              
+            }
+          );},
+          err => {
+            let config = new MatSnackBarConfig();
+            config.duration = 2000;
+            config.panelClass = ['red-snackbar']
+            this.snackBar.open("יצירת מוצר נכשלה", "", config);
+          });
         break;
       }
       default:{
-        //Add error massage
-        console.log(this.operation);
+        let config = new MatSnackBarConfig();
+        config.duration = 2000;
+        config.panelClass = ['red-snackbar']
+        this.snackBar.open("שגיאה מוזרה מאוד", "", config);
         break;
       }
     }

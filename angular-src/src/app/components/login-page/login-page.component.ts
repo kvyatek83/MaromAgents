@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Router} from '@angular/router';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 
 import { UserService } from '../../services/user.service';
 
@@ -16,7 +17,7 @@ export class LoginPageComponent implements OnInit {
   userInvalid = false;
   user : any;
 
-  constructor(private http: HttpClient, private router: Router, private userService: UserService) { }
+  constructor(private http: HttpClient, private router: Router, private userService: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -34,14 +35,19 @@ export class LoginPageComponent implements OnInit {
           } else {
             this.user = data['premission'];
             this.userInvalid = false;
-            //window.localStorage.setItem("premission", this.user);
-            //console.log(this.user);
-            //console.log(window.localStorage.getItem("premission"));
+            let config = new MatSnackBarConfig();
+            config.duration = 2000;
+            config.panelClass = ['green-snackbar']
+            this.snackBar.open("התחברות בוצעה בהצלחה!", "", config);
             this.userService.setPremission(this.user);
             this.router.navigate(['/']);
-          //TODO::move the default page...
         }},
-        err => console.error(err));
+        err => {
+          let config = new MatSnackBarConfig();
+          config.duration = 2000;
+          config.panelClass = ['red-snackbar']
+          this.snackBar.open("תקלה בניסיון התחברות!", "", config);
+        });
   }
 
 }

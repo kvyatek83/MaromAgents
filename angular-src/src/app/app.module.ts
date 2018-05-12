@@ -6,6 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from "@angular/material";
+
+
 // Local components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,6 +26,9 @@ import { StockPageComponent } from './components/product-pages/stock-page/stock-
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
+import { UpdateDialogComponent } from './dialogs/update-dialog/update-dialog.component';
+import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
+import { CreateDialogComponent } from './dialogs/create-dialog/create-dialog.component';
 
 // Local services
 import {AppRoutingModule} from './app-routing.module';
@@ -42,7 +51,10 @@ import { ProductsFilterPipe } from './shared/products-filter.pipe';
     UpdateProductComponent,
     ProductFormComponent,
     ProductsFilterPipe,
-    NgbdModalContent
+    NgbdModalContent,
+    UpdateDialogComponent,
+    DeleteDialogComponent,
+    CreateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +62,19 @@ import { ProductsFilterPipe } from './shared/products-filter.pipe';
     NgbModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [ProductsService, UserService],
-  entryComponents: [NgbdModalContent],
+  entryComponents: [
+    NgbdModalContent,
+    UpdateDialogComponent,
+    DeleteDialogComponent, 
+    CreateDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

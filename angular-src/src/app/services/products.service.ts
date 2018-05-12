@@ -52,5 +52,4 @@ export class ProductsService {
   deleteProduct(product) {
     return this.http.delete(this.remoteProductURL + '/' + product._id);
   }
-
 }

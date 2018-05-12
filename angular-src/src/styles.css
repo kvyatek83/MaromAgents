@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body{
   width: 100%;
@@ -18,4 +19,20 @@ a:hover{
 
 .xBTN{
   position: absolute;
+}
+
+.green-snackbar{
+  background-color: green;
+  direction: rtl;
+  text-align: right;
+}
+
+.red-snackbar{
+  background-color:red;
+  direction: rtl;
+  text-align: right;
+}
+
+.btn-spacer{
+  flex: 1 1 auto;
 }

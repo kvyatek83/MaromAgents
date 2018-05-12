@@ -1,10 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 
 import { ProductsService } from '../../services/products.service';
 import { UserService } from '../../services/user.service';
 import { Product } from '../../shared/product';
+
+import { UpdateDialogComponent } from '../../dialogs/update-dialog/update-dialog.component';
+import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-modal-content',
@@ -39,7 +44,12 @@ export class ProductsListComponent implements OnInit {
   @Input() products: any;
 
   filter: Product = new Product();
-  constructor(private productsService: ProductsService, private userService: UserService, private router: Router, private modalService: NgbModal) { }
+  constructor(private productsService: ProductsService,
+              private userService: UserService,
+              private router: Router,
+              private modalService: NgbModal,
+              private dialog: MatDialog, 
+              private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -54,21 +64,51 @@ export class ProductsListComponent implements OnInit {
   
   show(product){
     const modalRef = this.modalService.open(NgbdModalContent);
-        modalRef.componentInstance.prod = product;
+      modalRef.componentInstance.prod = product;
   }
   
   update(product){
-    this.router.navigate(['updateProduct', product._id]);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.direction = "rtl";
+    const dialogRef = this.dialog.open(UpdateDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => {
+        if(data)        
+          this.router.navigate(['updateProduct', product._id]);                    
+      });  
   }
 
   delete(product){ 
 
-    this.productsService.deleteProduct(product).subscribe(
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.direction = "rtl";
+    const dialogRef = this.dialog.open(DeleteDialogComponent, dialogConfig);
+    
+    dialogRef.afterClosed().subscribe(
       data => {
-        var index = this.products.indexOf(product);
-        this.products.splice(index, 1);
-      },
-      err => console.error(err));
-      
+        if(data)        
+        {
+          this.productsService.deleteProduct(product).subscribe(
+            data => {
+            let config = new MatSnackBarConfig();
+            config.duration = 2000;
+            config.panelClass = ['green-snackbar']
+            this.snackBar.open("מוצר נמחק בהצלחה", "", config);
+            var index = this.products.indexOf(product);
+            this.products.splice(index, 1);
+            },
+            err => {
+              let config = new MatSnackBarConfig();
+              config.duration = 2000;
+              config.panelClass = ['red-snackbar']
+              this.snackBar.open("מחיקת מוצר נכשלה", "", config);
+            });
+        }                    
+      });   
   }
 }
