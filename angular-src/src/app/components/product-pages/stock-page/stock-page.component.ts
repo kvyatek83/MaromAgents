@@ -10,11 +10,13 @@ import { ProductsService } from '../../../services/products.service';
 export class StockPageComponent implements OnInit {
 
   stock : any;
+  pageType : string;
    
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.getAllProducts();
+    this.pageType = "stock";    
+    this.getNotAvailableProducts();
   }
 
   getAllProducts(){
