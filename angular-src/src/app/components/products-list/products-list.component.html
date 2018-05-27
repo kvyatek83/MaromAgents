@@ -1,4 +1,9 @@
-<nav class="navbar navbar-light bg-light r2l">
+<nav class="navbar navbar-expand-md navbar-light bg-light r2l">
+  <a class="navbar-brand">סינון</a>  
+  <button class="navbar-toggler" type="button" (click)="searchbarCollapsed = !searchbarCollapsed" [attr.aria-expanded]="!searchbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngbCollapse]="searchbarCollapsed" id="navbarSupportedContent">  
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="text" [(ngModel)]="filter.Name" name="name" placeholder="שם מוצר..." aria-label="Search">
   </form>
@@ -11,6 +16,7 @@
       <button class="dropdown-item" (click)="getNotAvailableMensPerfume()">בישום גברים</button>
     </div>
   </div>
+</div>
 </nav>
 <!-- *ngIf="isUserIsAdmin() && isProductsTypeIsStock()"  -->
 <br>
@@ -18,7 +24,7 @@
 <div *ngIf="products">
   <div class="fiexd-side-1 r2l">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto"  *ngFor="let product of products | productsFilter:filter">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto text-center"  *ngFor="let product of products | productsFilter:filter">
           <br>        
         <div class="maincontainer">
         <div class="thecard">

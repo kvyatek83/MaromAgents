@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark r2l">
-    <a class="navbar-brand" [routerLink]="['/']">Marom</a>
+    <a class="navbar-brand" [routerLink]="['/']" (click)="closeNavbar()">Marom</a>
     <button class="navbar-toggler" type="button" (click)="navbarCollapsed = !navbarCollapsed" [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,21 +15,21 @@
           </a>
           <div class="dropdown-menu r2l" aria-labelledby="navbarDropdown" ngbDropdownMenu>
             <!--<a class="dropdown-item" (click)="navigateToProductPage('mperfume')">גברים</a>-->
-            <a class="dropdown-item" [routerLink]="['/mperfume']">גברים</a>
-            <a class="dropdown-item" [routerLink]="['/lperfume']">נשים</a>
+            <a class="dropdown-item" [routerLink]="['/mperfume']" (click)="closeNavbar()">גברים</a>
+            <a class="dropdown-item" [routerLink]="['/lperfume']" (click)="closeNavbar()">נשים</a>
           </div>
         </li>
         <li class="nav-item" routerLink="manager">
           <!--<a class="nav-link" (click)="navigateToProductPage('makeup')" href="#">איפור<span class="sr-only">(current)</span></a>-->
-          <a class="nav-link" [routerLink]="['/makeup']">איפור<span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink]="['/makeup']" (click)="closeNavbar()">איפור</a>
         </li>
         <li ngbDropdown class="nav-item dropdown" *ngIf="isUserIsAdmin()">
           <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             מנהל
           </a>
           <div class="dropdown-menu r2l" aria-labelledby="navbarDropdown" ngbDropdownMenu>
-            <a class="dropdown-item" [routerLink]="['/stock']">מלאי</a>
-            <a class="dropdown-item" [routerLink]="['/newProduct']">חדש</a>
+            <a class="dropdown-item" [routerLink]="['/stock']" (click)="closeNavbar()">מלאי</a>
+            <a class="dropdown-item" [routerLink]="['/newProduct']" (click)="closeNavbar()">חדש</a>
           </div>
         </li>
       </ul>

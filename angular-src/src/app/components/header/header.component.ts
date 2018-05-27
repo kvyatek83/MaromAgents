@@ -26,7 +26,12 @@ export class HeaderComponent implements OnInit {
     return window.localStorage.getItem("premission") == "admin";
   }
 
+  closeNavbar(){
+    this.navbarCollapsed = true;
+  }
+
   logout(){
+    this.navbarCollapsed = true;    
     window.localStorage.setItem("premission", "guest");
     let config = new MatSnackBarConfig();
     config.duration = 2000;
@@ -36,6 +41,7 @@ export class HeaderComponent implements OnInit {
   }
 
   navToLogin() {
+    this.navbarCollapsed = true;    
     this.router.navigate(['/login']);
   }
 }

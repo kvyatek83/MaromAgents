@@ -43,6 +43,7 @@ export class ProductsListComponent implements OnInit {
 
   @Input() products: any;
   @Input() productsType: any;
+  public searchbarCollapsed = true;
 
   filter: Product = new Product();
   constructor(private productsService: ProductsService,
