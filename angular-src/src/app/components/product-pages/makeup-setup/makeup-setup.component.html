@@ -1,0 +1,42 @@
+
+<br>
+
+<!-- <div class="row" *ngIf="makeupSettings.Company == null">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto text-center" *ngFor="let company of companys">
+    <a (click)="selectCompany(company)"> 
+      <img src="{{ company.image }}" class="rounded" height="300" width="300" alt="Sample photo" border="5">
+    </a>     
+  </div>
+</div>
+
+
+<div class="row" *ngIf="makeupSettings.Company != null">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto text-center" *ngFor="let makeupType of makeupTypes">
+    <a (click)="setup(makeupType)"> 
+      <img src="{{ makeupType.image }}" class="rounded" height="300" width="300" alt="Sample photo">
+    </a>     
+  </div>
+</div> -->
+
+<div class="row" *ngIf="makeupSettings.Company == null">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto text-center" *ngFor="let company of companys">
+      <div class="gallery">
+      <a (click)="selectCompany(company)"> 
+        <img src="{{ company.image }}" class="rounded" height="300" width="300" alt="{{ company.name }}">
+        <div class="desc">{{ company.name }}</div>          
+      </a> 
+    </div>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="makeupSettings.Company != null">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto text-center" *ngFor="let makeupType of makeupTypes">
+      <div class="gallery">
+      <a (click)="setup(makeupType)"> 
+        <img src="{{ makeupType.image }}" class="rounded" height="300" width="300" alt="{{ makeupType.name }}">
+        <div class="desc">{{ makeupType.name }}</div>                
+      </a> 
+    </div>
+  </div>
+</div>

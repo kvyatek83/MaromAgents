@@ -22,6 +22,7 @@ import { NgbdModalContent } from './components/products-list/products-list.compo
 import { MensPerfumePageComponent } from './components/product-pages/mens-perfume-page/mens-perfume-page.component';
 import { LadiesPerfumePageComponent } from './components/product-pages/ladies-perfume-page/ladies-perfume-page.component';
 import { MakeupPageComponent } from './components/product-pages/makeup-page/makeup-page.component';
+import { MakeupSetupComponent } from './components/product-pages/makeup-setup/makeup-setup.component';
 import { StockPageComponent } from './components/product-pages/stock-page/stock-page.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
@@ -54,7 +55,8 @@ import { ProductsFilterPipe } from './shared/products-filter.pipe';
     NgbdModalContent,
     UpdateDialogComponent,
     DeleteDialogComponent,
-    CreateDialogComponent
+    CreateDialogComponent,
+    MakeupSetupComponent
   ],
   imports: [
     BrowserModule,

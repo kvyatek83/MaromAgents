@@ -67,6 +67,10 @@ export class ProductsListComponent implements OnInit {
   isProductsTypeIsStock(){
     return this.productsType == "stock";    
   }
+
+  // isProductMakeup(){
+  //   return this.productsType == "stock";    
+  // }
   
   getNotAvailableProducts(){
     this.productsService.getProductsByStatus("לא זמין").subscribe(

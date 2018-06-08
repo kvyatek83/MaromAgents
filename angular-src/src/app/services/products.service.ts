@@ -45,6 +45,10 @@ export class ProductsService {
     return this.http.get(this.remoteProductURL + '/category/' + category+ '/gender/' + gender);
   }
 
+  getProductsByCompanyAndType(company, family, status) {
+    return this.http.get(this.remoteProductURL + '/company/' + company + '/family/' + family + '/status/' + status);
+  }
+
   getProductsByCategoryAndGenderAndStatus(category, gender, status) {
     return this.http.get(this.remoteProductURL + '/category/' + category + '/gender/' + gender + '/status/' + status);
   }

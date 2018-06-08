@@ -6,6 +6,21 @@ var ItemSchema = new mongoose.Schema({
         type: String,
         required: 'Please enter the name of the item'
       },
+      productCode: {
+        type: String
+      },
+      family: {
+        type: [{
+            type: String,
+            enum: ['פנים', 'עיניים', 'שפתיים', 'כללי']
+        }]
+      },
+      company: {
+        type: [{
+            type: String,
+            enum: ['מייבלין', 'לוריאל', 'בורזואה', 'רבלון', 'מקס פקטור']
+        }]
+      },
       gender: {
         type: [{
             type: String,

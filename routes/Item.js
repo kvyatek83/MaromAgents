@@ -12,6 +12,7 @@ router.get('/', item_controller.get_all_items)
       .get('/category/:category', item_controller.get_by_category)
       .get('/status/:status', item_controller.get_by_status)
       .get('/category/:category/gender/:gender', item_controller.get_by_category_and_gender)
-      .get('/category/:category/gender/:gender/status/:status', item_controller.get_by_category_and_gender_and_status);
+      .get('/category/:category/gender/:gender/status/:status', item_controller.get_by_category_and_gender_and_status)
+      .get('/company/:company/family/:family/status/:status', item_controller.get_by_company_and_type_and_status);
 
 module.exports = router;

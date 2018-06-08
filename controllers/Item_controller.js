@@ -11,6 +11,9 @@ exports.get_all_items = function(req, res, next) {
 /* SAVE ITEM */
 exports.save_item = function(req, res, next) {
   Item.create({name : req.body.name,
+    company : req.body.company,
+    family : req.body.family,
+    productCode : req.body.productCode,
               gender : req.body.gender,
               category : req.body.category,
               price : req.body.price, 
@@ -69,7 +72,16 @@ exports.get_by_category_and_gender = function(req, res, next) {
 exports.get_by_category_and_gender_and_status = function(req, res, next) {
   Item.find({category : req.params.category,
              gender : req.params.gender,
-            status : req.params.status}, function(err, products) {
+             status : req.params.status}, function(err, products) {
+    if (err) return next(err);
+    res.json(products);
+})};
+
+/* GET BY COMPANY AND TYPE AND STATUS*/
+exports.get_by_company_and_type_and_status = function(req, res, next) {
+  Item.find({company : req.params.company,
+             family : req.params.family,
+             status : req.params.status}, function(err, products) {
     if (err) return next(err);
     res.json(products);
 })};
