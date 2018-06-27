@@ -2,7 +2,29 @@
 
     <form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit()">
     
-      <div class="form-group">
+        <div class="form-group">
+            <div class="row">
+              <div class="col-md-4 offset-md-4">
+                <div class="input-group mb-3">
+                  <select class="custom-select r2l" formControlName="category" id="inputGroupSelect01" (change)="formByCategory()">
+                    <option value="" disabled selected>סוג מוצר</option>
+                    <option *ngFor="let item of Category" [value]="item"> {{item}} </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>       
+          <div class="row">
+            <div class="col-md-4 offset-md-4">
+              <div class="alert alert-danger r2l" role="alert" *ngIf="category.errors && (category.dirty || category.touched)">
+                <p *ngIf="category.errors.required">חובה להכניס סוג מוצר</p>
+              </div>
+            </div>
+          </div>
+
+
+
+      <div class="form-group" *ngIf="isPerfume || isMakeup">
         <div class="row">
           <div class="col-md-4 offset-md-4">
             <div class="input-group mb-3">
@@ -11,7 +33,6 @@
           </div>
         </div>
       </div>
-    
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <div class="alert alert-danger r2l" role="alert" *ngIf="itemName.errors && (itemName.dirty || itemName.touched)">
@@ -21,28 +42,64 @@
       </div>
     
     
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-4 offset-md-4">
-            <div class="input-group mb-3">
-              <select class="custom-select r2l" formControlName="category" id="inputGroupSelect01">
-                <option value="" disabled selected>סוג מוצר</option>
-                <option *ngFor="let item of Category" [value]="item"> {{item}} </option>
-              </select>
+      <div class="form-group" *ngIf="isPerfume || isMakeup">
+          <div class="row">
+            <div class="col-md-4 offset-md-4">
+              <div class="input-group mb-3">
+                <input type="text"  class="form-control r2l" placeholder="ברקוד מוצר" aria-label="" aria-describedby="basic-addon1" formControlName="code" required>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
-      <div class="row">
-        <div class="col-md-4 offset-md-4">
-          <div class="alert alert-danger r2l" role="alert" *ngIf="category.errors && (category.dirty || category.touched)">
-            <p *ngIf="category.errors.required">חובה להכניס סוג מוצר</p>
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            <div class="alert alert-danger r2l" role="alert" *ngIf="code.errors && (code.dirty || code.touched)">
+              <p *ngIf="code.errors.required">חובה להכניס ברקוד מוצר</p>
+            </div>
           </div>
         </div>
-      </div>
-    
-      <div class="form-group">
+
+        <div class="form-group" *ngIf="isMakeup">
+            <div class="row">
+              <div class="col-md-4 offset-md-4">
+                <div class="input-group mb-3">
+                  <select class="custom-select r2l" formControlName="company" id="inputGroupSelect01">
+                    <option value="" disabled selected>חברה</option>
+                    <option *ngFor="let company of Companies" [value]="company"> {{company}} </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 offset-md-4">
+              <div class="alert alert-danger r2l" role="alert" *ngIf="company.errors && (company.dirty || company.touched)">
+                <p *ngIf="company.errors.required">חובה להכניס חברה</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" *ngIf="isMakeup">
+              <div class="row">
+                <div class="col-md-4 offset-md-4">
+                  <div class="input-group mb-3">
+                    <select class="custom-select r2l" formControlName="type" id="inputGroupSelect01">
+                      <option value="" disabled selected>קטגוריה</option>
+                      <option *ngFor="let type of Types" [value]="type"> {{type}} </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 offset-md-4">
+                <div class="alert alert-danger r2l" role="alert" *ngIf="type.errors && (type.dirty || type.touched)">
+                  <p *ngIf="type.errors.required">חובה להכניס קטגוריה</p>
+                </div>
+              </div>
+            </div>
+            
+      <div class="form-group" *ngIf="isPerfume">
         <div class="row">
           <div class="col-md-4 offset-md-4">
             <div class="input-group mb-3">
@@ -54,7 +111,6 @@
           </div>
         </div>
       </div>
-    
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <div class="alert alert-danger r2l" role="alert" *ngIf="gender.errors && (gender.dirty || gender.touched)">
@@ -63,7 +119,7 @@
         </div>
       </div>
     
-      <div class="form-group">
+      <div class="form-group" *ngIf="isPerfume || isMakeup">
         <div class="row">
           <div class="col-md-4 offset-md-4">
             <div class="input-group mb-3">
@@ -75,7 +131,6 @@
           </div>
         </div>
       </div>
-    
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <div class="alert alert-danger r2l" role="alert" *ngIf="status.errors && (status.dirty || status.touched)">
@@ -84,7 +139,7 @@
         </div>
       </div>
     
-      <div class="form-group">
+      <div class="form-group" *ngIf="isPerfume || isMakeup">
         <div class="row">
           <div class="col-md-4 offset-md-4">
             <div class="input-group mb-3">
@@ -93,8 +148,6 @@
           </div>
         </div>  
       </div>
-    
-    
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <div class="alert alert-danger r2l" role="alert" *ngIf="price.errors && (price.dirty || price.touched)">
@@ -105,7 +158,7 @@
       </div>
     
     
-      <div class="form-group">
+      <div class="form-group" *ngIf="isPerfume || isMakeup">
         <div class="row">
           <div class="col-md-4 offset-md-4">
             <div class="input-group mb-3">
@@ -114,8 +167,6 @@
           </div>
         </div>
       </div>
-    
-    
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <div class="alert alert-danger r2l" role="alert" *ngIf="amount.errors && (amount.dirty || amount.touched)">
@@ -126,7 +177,7 @@
       </div>
     
 
-      <div class="form-group">
+      <div class="form-group" *ngIf="isPerfume || isMakeup">
           <div class="row">
             <div class="col-md-4 offset-md-4">
               <div class="input-group mb-3">
@@ -135,7 +186,6 @@
             </div>
           </div>
         </div>
-
         <div class="row">
             <div class="col-md-4 offset-md-4">
               <div class="alert alert-danger r2l" role="alert" *ngIf="image.errors && (image.dirty || image.touched)">

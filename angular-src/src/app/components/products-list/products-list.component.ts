@@ -44,6 +44,7 @@ export class ProductsListComponent implements OnInit {
   @Input() products: any;
   @Input() productsType: any;
   public searchbarCollapsed = true;
+  selectedStock : String;
 
   filter: Product = new Product();
   constructor(private productsService: ProductsService,
@@ -54,6 +55,7 @@ export class ProductsListComponent implements OnInit {
               private snackBar: MatSnackBar) { }
 
   ngOnInit() {
+    this.selectedStock = "הכל";
   }
 
   isUserIsAdmin(){
@@ -67,32 +69,30 @@ export class ProductsListComponent implements OnInit {
   isProductsTypeIsStock(){
     return this.productsType == "stock";    
   }
-
-  // isProductMakeup(){
-  //   return this.productsType == "stock";    
-  // }
   
   getNotAvailableProducts(){
+    this.selectedStock =  "הכל";
     this.productsService.getProductsByStatus("לא זמין").subscribe(
       data => {this.products = data},
       err => console.error(err));
   }
 
-  //
   getNotAvailableMakeups(){
+    this.selectedStock =  "איפור";
     this.productsService.getProductsByCategoryAndGenderAndStatus("איפור", "אישה", "לא זמין").subscribe(
       data => {this.products = data},
       err => console.error(err));
   }
 
   getNotAvailableMensPerfume(){
+    this.selectedStock =  "בישום גברים";
     this.productsService.getProductsByCategoryAndGenderAndStatus("בושם", "גבר", "לא זמין").subscribe(
       data => {this.products = data},
       err => console.error(err));
   }
 
-  //
   getNotAvailablePerfumes(){
+    this.selectedStock =  "בישום נשים";
     this.productsService.getProductsByCategoryAndGenderAndStatus("בושם", "אישה", "לא זמין").subscribe(
       data => {this.products = data},
       err => console.error(err));

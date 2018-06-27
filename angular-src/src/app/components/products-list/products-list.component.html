@@ -5,27 +5,32 @@
   </button>
   <div class="collapse navbar-collapse" [ngbCollapse]="searchbarCollapsed" id="navbarSupportedContent">  
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="text" [(ngModel)]="filter.Name" name="name" placeholder="שם מוצר..." aria-label="Search">
+    <input class="form-control mr-sm-2" type="text" [(ngModel)]="filter.name" name="name" placeholder="שם מוצר..." aria-label="Search">
+  </form>
+  <form class="form-inline" *ngIf="isUserIsAdmin() || isUserIsAgents()">
+    <input class="form-control mr-sm-2" type="text" [(ngModel)]="filter.productCode" name="productCode" placeholder="ברקוד..." aria-label="Search">
+  </form>
+  <form class="form-inline" *ngIf="isUserIsAdmin() || isUserIsAgents()">
+    <input class="form-control mr-sm-2" type="number" [(ngModel)]="filter.price" name="price" placeholder="מחיר..." aria-label="Search">
   </form>
   <div ngbDropdown class="d-inline-block" *ngIf="isUserIsAdmin() && isProductsTypeIsStock()">
-    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>חוסרים במלאי</button>
-    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedStock}}</button>
+    <div ngbDropdownMenu class="r2l" aria-labelledby="dropdownBasic1">
       <button class="dropdown-item" (click)="getNotAvailableProducts()">הכל</button>
-      <button class="dropdown-item">איפור</button>
+      <button class="dropdown-item" (click)="getNotAvailableMakeups()">איפור</button>
       <button class="dropdown-item" (click)="getNotAvailablePerfumes()">בישום נשים</button>
       <button class="dropdown-item" (click)="getNotAvailableMensPerfume()">בישום גברים</button>
     </div>
   </div>
 </div>
 </nav>
-<!-- *ngIf="isUserIsAdmin() && isProductsTypeIsStock()"  -->
 <br>
 
 <div *ngIf="products">
   <div class="fiexd-side-1 r2l">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mx-auto text-center"  *ngFor="let product of products | productsFilter:filter">
-          <br>        
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mx-auto d-flex justify-content-center" *ngFor="let product of products | productsFilter:filter">
+        <br>        
         <div class="maincontainer">
         <div class="thecard">
           <div class="thefront">

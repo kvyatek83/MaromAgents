@@ -34,6 +34,10 @@ export class MakeupSetupComponent implements OnInit {
   ngOnInit() {
   }
 
+  changeCompany(){
+    this.makeupSettings.Company = null;
+  }
+
   selectCompany(selectedCompany : any){
     this.makeupSettings.Company = selectedCompany.name;
   }

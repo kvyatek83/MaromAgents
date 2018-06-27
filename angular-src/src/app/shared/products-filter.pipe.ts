@@ -22,15 +22,15 @@ export class ProductsFilterPipe implements PipeTransform {
    * @param {Book} filter The filter to apply.
    * @return {boolean} True if book satisfies filters, false if not.
    */
-  applyFilter(product: any, filter: Product): boolean {
+  applyFilter(product: Product, filter: Product): boolean {
     for (let field in filter) {
       if (filter[field]) {
         if (typeof filter[field] === 'string') {
-          if ((product.name).toLowerCase().indexOf(filter[field].toLowerCase()) === -1) {
+          if ((product[field]).toLowerCase().indexOf(filter[field].toLowerCase()) === -1) {
             return false;
           }
         } else if (typeof filter[field] === 'number') {
-          if (product.name !== filter[field]) {
+          if (product[field] !== filter[field]) {
             return false;
           }
         }
