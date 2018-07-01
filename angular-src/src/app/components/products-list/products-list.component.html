@@ -13,9 +13,9 @@
   <form class="form-inline" *ngIf="isUserIsAdmin() || isUserIsAgents()">
     <input class="form-control mr-sm-2" type="number" [(ngModel)]="filter.price" name="price" placeholder="מחיר..." aria-label="Search">
   </form>
-  <div ngbDropdown class="d-inline-block" *ngIf="isUserIsAdmin() && isProductsTypeIsStock()">
+  <div ngbDropdown class="d-inline-block " *ngIf="isUserIsAdmin() && isProductsTypeIsStock()">
     <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedStock}}</button>
-    <div ngbDropdownMenu class="r2l" aria-labelledby="dropdownBasic1">
+    <div ngbDropdownMenu class="dropdown-menu-my r2l" aria-labelledby="dropdownBasic1">
       <button class="dropdown-item" (click)="getNotAvailableProducts()">הכל</button>
       <button class="dropdown-item" (click)="getNotAvailableMakeups()">איפור</button>
       <button class="dropdown-item" (click)="getNotAvailablePerfumes()">בישום נשים</button>
@@ -27,6 +27,13 @@
 <br>
 
 <div *ngIf="products">
+  <div class="container h-100" *ngIf="(products | productsFilter:filter).length === 0">
+    <div class="row h-100 justify-content-center align-item-center">
+      <div class="col-12 text-center">
+        לא נמצאו פריטים תואמים
+      </div>
+    </div>
+  </div>
   <div class="fiexd-side-1 r2l">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mx-auto d-flex justify-content-center" *ngFor="let product of products | productsFilter:filter">
@@ -72,7 +79,12 @@
   </div>
 </div>
 
-<div *ngIf="!products">
-  לא נטענו שם מוצרים
+<div class="container h-100" *ngIf="!products">
+  <div class="row h-100 justify-content-center align-item-center">
+    <div class="col-12 text-center">
+      מחכה לטעינת פריטים מהשרת
+    </div>
+  </div>
 </div>
+
         

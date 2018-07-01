@@ -79,3 +79,12 @@ img.resize {
     font-size: 20px;
     text-align: center;
   }
+
+  .dropdown-menu-my.show{
+      left: auto;
+      right: 0;
+  }
+
+  button.dropdown-item:hover{
+    background-color: #007bff !important;      
+  }
