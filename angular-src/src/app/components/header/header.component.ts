@@ -19,11 +19,11 @@ export class HeaderComponent implements OnInit {
   }
 
   isUserIsAgent(){
-    return window.localStorage.getItem("premission") == "agent";
+    return this.userService.getPremission() == "agent";
   }
 
   isUserIsAdmin(){
-    return window.localStorage.getItem("premission") == "admin";
+    return this.userService.getPremission() == "admin";
   }
 
   closeNavbar(){
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     this.navbarCollapsed = true;    
-    window.localStorage.setItem("premission", "guest");
+    this.userService.setPremission("guest");
     let config = new MatSnackBarConfig();
     config.duration = 2000;
     config.panelClass = ['green-snackbar']
